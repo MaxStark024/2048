@@ -1,0 +1,36 @@
+gameBoard = [[2,0,0,0],
+            [2,0,0,0],
+            [2,0,0,0],
+            [2,0,0,0]]
+print(gameBoard)
+for col in range(1):
+    nonZeros = 0
+    for i in range(4):
+        if gameBoard[i][col] != 0:
+            nonZeros += 1
+    print(nonZeros)
+    count = 0
+    i = 0
+    for k in range(nonZeros):
+        for row in range(k, 4):
+            if gameBoard[row][col] != 0:
+                break
+            count += 1
+        count = count - k
+        print(count)
+        print(gameBoard, '%')
+        for row in range(k, 4):
+            if gameBoard[row][col] != 0:
+                gameBoard[row-count][col] = gameBoard[row][col]
+                print(gameBoard,'!')
+                gameBoard[row][col] = 0
+                print(gameBoard, '*')
+                break
+            print(gameBoard,'$')
+        print('endloop')       
+        
+        
+    
+        
+            
+print(gameBoard)
